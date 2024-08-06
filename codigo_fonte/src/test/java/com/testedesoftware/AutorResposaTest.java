@@ -36,8 +36,7 @@ public class AutorResposaTest {
 
     @Test
     public void err() {
-        System.err.print("hello again");
+        System.err.print("hello agai");
         assertEquals("hello again", errContent.toString());
     }
-
 }

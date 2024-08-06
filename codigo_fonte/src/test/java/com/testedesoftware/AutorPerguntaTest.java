@@ -1,22 +1,21 @@
 package com.testedesoftware;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Properties;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+public class AutorPerguntaTest {
 
-public class AutorPerguntaTest 
-{
-    static Properties properties = new Properties();
     static ResponseGenerator instance;
-
+    
     @BeforeClass
     public static void setUpClass() throws Exception {
-        Properties queries = Properties.load("requests.properties");
+        Properties queries = loadPropertiesFile("requests.properties");
         Properties responses = loadPropertiesFile("responses.properties");
         instance = new ResponseGenerator(queries, responses);
     }
@@ -28,4 +27,5 @@ public class AutorPerguntaTest
         String result = instance.getResponse(request);
         assertEquals(expResult, result);
     }
+    
 }
